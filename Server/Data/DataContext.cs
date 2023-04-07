@@ -16,7 +16,7 @@
 					new ProductType { Id = 1, Name = "New" },
 					new ProductType { Id = 2, Name = "Used" },
 					new ProductType { Id = 3, Name = "Refurbished" },
-					new ProductType { Id = 4, Name = "New gen" }					
+					new ProductType { Id = 4, Name = "New gen" }
 				);
 
 			modelBuilder.Entity<Category>().HasData(
@@ -63,7 +63,8 @@
 						Title = "Placa Video GIGABYTE GeForce RTX 4090 Gaming OC 24GB GDDR6X 384-bit",
 						Description = "Sistemul de răcire WINDFORCE are trei ventilatoare cu pale unice de 110 mm, rotatie alternativă, 10 conducte de căldură din cupru compozit, o cameră mare de vapori atinge direct GPU-ul, ventilatoare active 3D si răcire cu ecran, care împreună asigură disiparea căldurii de înaltă eficientă.",
 						ImageUrl = "https://s1.cel.ro/images/Products/2022/10/12/Placa-Video-GIGABYTE-GeForce-RTX-4090-Gaming-24GB-GDDR6X-384-bit-N4090GAMING-OC-24G.jpg",
-						CategoryId = 1
+						CategoryId = 1,
+						Featured = true
 					},
 					new Product
 					{
@@ -87,7 +88,8 @@
 						Title = "Procesor AMD Ryzen 9 7900 3.7GHz Box Socket AM5",
 						Description = "Schimbă modul în care joci\r\n\r\nCând PC-ul tău are cel mai avansat procesor desktop din lume pentru jucători, te poti concentra pe ceea ce contează cu adevărat: să fii victorios pe câmpul de luptă digital. Indiferent dacă jucati cele mai recente titluri sau revedeti un clasic, procesoarele AMD Ryzen™ din seria 7000 sunt o putere de gaming cu nuclee „Zen 4” de înaltă performantă. Cu până la 16 nuclee, 32 fire de executie, ceasuri sporite de până la 5,7 GHz2si până la 80 MB de memorie cache, procesoarele AMD Ryzen 7000 Series oferă performante care schimbă jocul.",
 						ImageUrl = "https://s1.cel.ro/images/Products/2022/12/28/Procesor-AMD-Ryzen-9-7900-3-7GHz-Box-Socket-AM5-100-100000590BOX.jpg",
-						CategoryId = 2
+						CategoryId = 2,
+						Featured = true
 					},
 					new Product
 					{
@@ -111,7 +113,8 @@
 						Title = "Kit Memorie Kingston FURY Beast Black 32GB 2x16GB DDR5 5200MHz CL40 Dual Channel",
 						Description = "Memoriile Kingston FURY™ Beast DDR5 aduc cea mai recenta tehnologie de ultima generatie pentru platformele de jocuri de ultima generatie. Ducand viteza, capacitatea si fiabilitatea si mai departe, DDR5 soseste cu un arsenal de caracteristici imbunatatite, cum ar fi ECC on-die (ODECC) pentru o stabilitate imbunatatita la viteze extreme, subcanale duale pe 32 de biti pentru o eficienta sporita si un circuit integrat de gestionare a energiei (PMIC) pe modul pentru a furniza energie acolo unde este cel mai necesar.",
 						ImageUrl = "https://s1.cel.ro/images/Products/memorie-ram-kingston-fury-beast-dimm-ddr5-32-gb-2x16gb-cl40-5200-mhz.jpg",
-						CategoryId = 3
+						CategoryId = 3,
+						Featured = true
 					}
 				);
 
