@@ -3,6 +3,7 @@ using EComm.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EComm.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230406235102_ProductVariants")]
+    partial class ProductVariants
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -230,7 +232,7 @@ namespace EComm.Server.Migrations
                         {
                             ProductId = 1,
                             ProductTypeId = 1,
-                            OriginalPrice = 2349.99m,
+                            OriginalPrice = 0m,
                             Price = 2249.99m
                         },
                         new
@@ -244,7 +246,7 @@ namespace EComm.Server.Migrations
                         {
                             ProductId = 1,
                             ProductTypeId = 3,
-                            OriginalPrice = 1749.99m,
+                            OriginalPrice = 0m,
                             Price = 1649.99m
                         },
                         new
@@ -265,7 +267,7 @@ namespace EComm.Server.Migrations
                         {
                             ProductId = 3,
                             ProductTypeId = 2,
-                            OriginalPrice = 1299.99m,
+                            OriginalPrice = 0m,
                             Price = 1249.99m
                         },
                         new
@@ -279,7 +281,7 @@ namespace EComm.Server.Migrations
                         {
                             ProductId = 5,
                             ProductTypeId = 4,
-                            OriginalPrice = 2799.99m,
+                            OriginalPrice = 0m,
                             Price = 2549.99m
                         },
                         new
@@ -300,8 +302,8 @@ namespace EComm.Server.Migrations
                         {
                             ProductId = 8,
                             ProductTypeId = 4,
-                            OriginalPrice = 2799.99m,
-                            Price = 3199.99m
+                            OriginalPrice = 0m,
+                            Price = 2549.99m
                         });
                 });
 
