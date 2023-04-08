@@ -15,7 +15,7 @@ else
 		@foreach (var product in cartProducts)
 		{
 			<div class="container">
-				<div class="image=wrapper">
+				<div class="image-wrapper">
 					<img src="@product.ImageUrl" class="image" />
 				</div>
 				<div class="name">
@@ -58,14 +58,11 @@ else
 
 	private async Task LoadCart()
 	{
-		if ((await CartService.GetCartItems()).Count == 0)
+		await CartService.GetCartItemsCount();
+		cartProducts = await CartService.GetCartProducts();
+		if (cartProducts == null || cartProducts.Count == 0)
 		{
 			message = "Your cart is empty.";
-			cartProducts = new List<CartProductResponse>();
-		}
-		else
-		{
-			cartProducts = await CartService.GetCartProducts();
 		}
 	}
 
