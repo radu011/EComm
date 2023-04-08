@@ -31,7 +31,7 @@
 				.FirstOrDefaultAsync(p => p.Id == productId);
 			if (product == null)
 			{
-				response.Succes = false;
+				response.Success = false;
 				response.Message = "Sorry, but this product does not exist.";
 			}
 			else
