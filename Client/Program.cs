@@ -4,6 +4,7 @@ global using EComm.Client.Services.ProductService;
 global using EComm.Client.Services.CategoryService;
 global using EComm.Client.Services.CartService;
 global using EComm.Client.Services.AuthService;
+global using EComm.Client.Services.OrderService;
 global using Microsoft.AspNetCore.Components.Authorization;
 using EComm.Client;
 using Microsoft.AspNetCore.Components.Web;
@@ -22,6 +23,7 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 builder.Services.AddOptions();
 builder.Services.AddAuthorizationCore();
