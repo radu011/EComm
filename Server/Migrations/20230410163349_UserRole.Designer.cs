@@ -4,6 +4,7 @@ using EComm.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EComm.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230410163349_UserRole")]
+    partial class UserRole
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -96,9 +98,6 @@ namespace EComm.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -106,9 +105,6 @@ namespace EComm.Server.Migrations
                     b.Property<string>("Url")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Visible")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -118,26 +114,20 @@ namespace EComm.Server.Migrations
                         new
                         {
                             Id = 1,
-                            Deleted = false,
                             Name = "Placi video",
-                            Url = "placiVideo",
-                            Visible = true
+                            Url = "placiVideo"
                         },
                         new
                         {
                             Id = 2,
-                            Deleted = false,
                             Name = "Procesoare",
-                            Url = "procesoare",
-                            Visible = true
+                            Url = "procesoare"
                         },
                         new
                         {
                             Id = 3,
-                            Deleted = false,
                             Name = "Memorii",
-                            Url = "memorii",
-                            Visible = true
+                            Url = "memorii"
                         });
                 });
 
