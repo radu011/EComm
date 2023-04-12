@@ -5,6 +5,7 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ICartService CartService
+@inject ISnackbar Snackbar
 
 <PageTitle>Login</PageTitle>
 
@@ -55,6 +56,8 @@
 
 		if(result.Success)
 		{
+			Snackbar.Add("Login successfully", Severity.Success);
+
 			errorMessage = string.Empty;
 
 			await LocalStorage.SetItemAsync("authToken", result.Data);

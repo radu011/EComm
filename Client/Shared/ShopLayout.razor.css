@@ -36,7 +36,14 @@ main {
         text-overflow: ellipsis;
     }
 
+.home-btn {
+  
+}
+
 @media (max-width: 640.98px) {
+    .home-btn{
+        display: none;
+    }
 
     .top-row.auth {
         justify-content: space-between;
@@ -48,6 +55,8 @@ main {
 }
 
 @media (min-width: 641px) {
+
+
     .page {
         flex-direction: row;
     }

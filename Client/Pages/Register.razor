@@ -1,5 +1,7 @@
 ﻿@page "/register"
 @inject IAuthService AuthService
+@inject ISnackbar Snackbar
+@inject NavigationManager NavigationManager
 
 <PageTitle>Register</PageTitle>
 
@@ -29,7 +31,7 @@
 	<button class="btn btn-primary mb-2" type="submit">Register</button>
 
 	<div class="@messageCssClass">
-		<span>@message</span>
+		@*<span>@message</span>*@
 	</div>
 
 </EditForm>
@@ -45,8 +47,16 @@
 		var result = await AuthService.Register(user);
 		message = result.Message;
 		if (result.Success)
+		{
 			messageCssClass = "text-success";
+			Snackbar.Add(message, Severity.Success);
+
+			NavigationManager.NavigateTo("/login");
+		}
 		else
+		{
 			messageCssClass = "text-danger";
+			Snackbar.Add(message, Severity.Error);
+		}
 	}
 }

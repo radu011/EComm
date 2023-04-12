@@ -2,12 +2,13 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject NavigationManager NavigationManager
 @inject ICartService CartService
+@inject ISnackbar Snackbar
 
 <div class="dropdown">
 	<button @onclick="ToggleUserMenu"
 			@onfocusout="HideUserMenu"
-		class="btn btn-secondary dropdown-toggle user-button">
-		<i class="oi oi-person"/>
+			class="btn btn-secondary dropdown-toggle user-button">
+		<i class="oi oi-person" />
 	</button>
 	<div class="dropdown-menu dropdown-menu-right @UserMenuCssClass">
 		<AuthorizeView>
@@ -47,5 +48,7 @@
 		await CartService.GetCartItemsCount();
 		await AuthenticationStateProvider.GetAuthenticationStateAsync();
 		NavigationManager.NavigateTo("");
+
+		Snackbar.Add("You are not logged anymore", Severity.Success);
 	}
 }
