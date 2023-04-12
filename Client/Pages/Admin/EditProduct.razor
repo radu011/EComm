@@ -5,6 +5,7 @@
 @inject ICategoryService CategoryService
 @inject NavigationManager NavigationManager
 @inject IJSRuntime JSRuntime
+@inject ISnackbar Snackbar
 
 
 @if (loading)
@@ -140,7 +141,6 @@ else
 }
 
 
-
 @code {
 	[Parameter]
 	public int Id { get; set; }
@@ -199,17 +199,23 @@ else
 	{
 		product.Variants
 			.Add(new ProductVariant { IsNew = true, ProductId = product.Id });
+
+		Snackbar.Add("Variant added", Severity.Success);
 	}
 
 	async void AddOrUpdateProduct()
 	{
 		if (product.IsNew)
 		{
+			Snackbar.Add("Product created", Severity.Success);
+
 			var result = await ProductService.CreateProduct(product);
 			NavigationManager.NavigateTo($"admin/product/{result.Id}");
 		}
 		else
 		{
+			Snackbar.Add("Product updated", Severity.Success);
+
 			product.IsNew = false;
 			product = await ProductService.UpdateProduct(product);
 			NavigationManager.NavigateTo($"admin/product/{product.Id}", true);
@@ -224,6 +230,8 @@ else
 		{
 			await ProductService.DeleteProduct(product);
 			NavigationManager.NavigateTo("admin/products");
+
+			Snackbar.Add("Product successfully deleted", Severity.Success);
 		}
 	}
 

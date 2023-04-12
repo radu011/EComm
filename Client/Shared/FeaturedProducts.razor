@@ -9,33 +9,55 @@
 else
 {
 	<div class="container">
-		@foreach (var product in ProductService.Products)
-		{
-			@if (product.Featured)
-			{
-				<div class="featured-product">
-					<div>
-						<a href="product/@product.Id">
-							@if (!string.IsNullOrEmpty(product.ImageUrl))
-							{
-								<img src="@product.ImageUrl" />
-							}
-							else if (product.Images.Count > 0)
-							{
-								<img src="@product.Images[0].Data" />
-							}
-						</a>
-					</div>
-					<h4><a href="product/@product.Id">@product.Title</a></h4>
-					@if(product.Variants != null && product.Variants.Count > 0)
-					{
-						<h5 class="price">
-							$@product.Variants[0].Price
-						</h5>
-					}
+
+		<MudCarousel Class="mud-width-full" ItemsSource="@ProductService.Products" Style="height:250px; text-align:center;">
+
+			<ItemTemplate>
+
+				<div class="d-flex flex-column flex-column justify-center" style=" height:100%;">
+					<a href="product/@context.Id">
+						@if (!string.IsNullOrEmpty(context.ImageUrl))
+						{
+							<MudImage Src="@context.ImageUrl" Style="img"></MudImage>
+						}
+						else if (context.Images.Count > 0)
+						{
+							<MudImage Src="@context.Images[0].Data" Style="img"></MudImage>
+						}
+					</a>
 				</div>
-			}
-		}
+
+			</ItemTemplate>
+
+		</MudCarousel>
+		@*
+	@foreach (var product in ProductService.Products)
+	{
+	@if (product.Featured)
+	{
+	<div class="featured-product">
+	<div>
+	<a href="product/@product.Id">
+	@if (!string.IsNullOrEmpty(product.ImageUrl))
+	{
+	<img src="@product.ImageUrl" />
+	}
+	else if (product.Images.Count > 0)
+	{
+	<img src="@product.Images[0].Data" />
+	}
+	</a>
+	</div>
+	<h4><a href="product/@product.Id">@product.Title</a></h4>
+	@if (product.Variants != null && product.Variants.Count > 0)
+	{
+	<h5 class="price">
+	$@product.Variants[0].Price
+	</h5>
+	}
+	</div>
+	}
+	}*@
 	</div>
 }
 

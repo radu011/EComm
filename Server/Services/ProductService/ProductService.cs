@@ -130,6 +130,7 @@
 				Data = await _context.Products
 				.Where(p => p.Category.Url.ToLower().Equals(categoryUrl.ToLower())
 				&& p.Visible && !p.Deleted)
+				.Include(p => p.Images)
 				.Include(p => p.Variants.Where(v => v.Visible && !v.Deleted))
 				.ToListAsync()
 			};
@@ -220,10 +221,11 @@
 			dbProduct.Visible = product.Visible;
 			dbProduct.Featured = product.Featured;
 
+			// something went wrong!!! no images added to the database
 			var productImages = dbProduct.Images;
 			_context.Images.RemoveRange(productImages);
 
-			dbProduct.Images = productImages;
+			dbProduct.Images = product.Images;
 
 			foreach (var variant in product.Variants)
 			{
