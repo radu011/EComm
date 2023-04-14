@@ -9,13 +9,13 @@ namespace EComm.Server.Services.PaymentService
 		private readonly IAuthService _authService;
 		private readonly IOrderService _orderService;
 
-		const string secret = "whsec_af79cc102aae9527a8560f645a2a96051abf2af6719bc57fe8a3b0b99b59a615";
+		const string secret = "";
 
 		public PaymentService(ICartService cartService,
 								IAuthService authService,
 								IOrderService orderService)
 		{
-			StripeConfiguration.ApiKey = "sk_test_51Mux5FCYZ93U7jVoOPYUgY8779h1qybdobad0zD9az624OHjTFbLHFbw2LDipTki2PYGJIjf9phPFkkpmQJaoiUN0085bQz9gt";
+			StripeConfiguration.ApiKey = "";
 
 			_cartService = cartService;
 			_authService = authService;
